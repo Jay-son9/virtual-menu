@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fast Bites Burger Menu</title>
+  <style>
+    :root {
+      --primary-color: #d62828;
+      --secondary-color: #f77f00;
+      --bg-color: #f8f9fa;
+      --text-color: #333;
+      --max-width: 1200px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg-color);
+      margin: 0;
+      color: var(--text-color);
+    }
+
+    header {
+      background: var(--primary-color);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 1rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .menu-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .menu-item {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      flex: 1 1 calc(25% - 1rem);
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .menu-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+    }
+
+    .menu-item h3 {
+      margin: 0.5rem 0 0.25rem;
+    }
+
+    .menu-item p {
+      margin: 0;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .special {
+      background: #fff8e1;
+      padding: 1rem;
+      border-left: 5px solid var(--secondary-color);
+    }
+
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+
+    footer p {
+      margin: 0.3rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .menu-item {
+        flex: 1 1 calc(50% - 1rem);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .menu-item {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Fast Bites Burger Menu</h1>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>🍔 Burgers</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Classic Burger">
+          <h3>Classic Burger</h3>
+          <p>$5.99</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Cheeseburger">
+          <h3>Cheeseburger</h3>
+          <p>$6.49</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Bacon Burger">
+          <h3>Bacon Burger</h3>
+          <p>$6.99</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="BBQ Burger">
+          <h3>BBQ Burger</h3>
+          <p>$7.49</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Veggie Burger">
+          <h3>Veggie Burger</h3>
+          <p>$5.49</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Double Burger">
+          <h3>Double Burger</h3>
+          <p>$8.49</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Spicy Burger">
+          <h3>Spicy Burger</h3>
+          <p>$6.99</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Mushroom Swiss">
+          <h3>Mushroom Swiss</h3>
+          <p>$7.29</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>🍟 Side Orders</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Fries">
+          <h3>Fries</h3>
+          <p>$2.49</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Onion Rings">
+          <h3>Onion Rings</h3>
+          <p>$2.99</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Mozzarella Sticks">
+          <h3>Mozzarella Sticks</h3>
+          <p>$3.49</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Chicken Nuggets">
+          <h3>Chicken Nuggets</h3>
+          <p>$3.99</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Curly Fries">
+          <h3>Curly Fries</h3>
+          <p>$2.99</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Loaded Fries">
+          <h3>Loaded Fries</h3>
+          <p>$4.49</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Coleslaw">
+          <h3>Coleslaw</h3>
+          <p>$1.99</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Side Salad">
+          <h3>Side Salad</h3>
+          <p>$2.49</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>🥤 Drinks</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Coke">
+          <h3>Coke</h3>
+          <p>$1.49</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Diet Coke">
+          <h3>Diet Coke</h3>
+          <p>$1.49</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Sprite">
+          <h3>Sprite</h3>
+          <p>$1.49</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Lemonade">
+          <h3>Lemonade</h3>
+          <p>$1.79</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Iced Tea">
+          <h3>Iced Tea</h3>
+          <p>$1.79</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Milkshake">
+          <h3>Milkshake</h3>
+          <p>$2.99</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>🌟 Weekly Special</h2>
+      <div class="special">
+        <h3>Triple Bacon BBQ Beast</h3>
+        <p><strong>$9.99</strong></p>
+        <p>A triple patty monster with crispy bacon, smoky BBQ sauce, cheddar cheese, onion rings, and all the fixings. Only this week!</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p><strong>Fast Bites Burger</strong></p>
+    <p>123 Flavor Street, Burger Town, BK 11223</p>
+    <p>Email: contact@fastbitesburger.com</p>
+    <p>Phone: (123) 456-7890</p>
+  </footer>
+
+</body>
+</html>
+
+    

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #d62828;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f77f00;
+      color: #fff;
+    }
+
+    .total {
+      font-weight: bold;
+      text-align: right;
+      font-size: 1.2rem;
+    }
+
+    button {
+      padding: 0.3rem 0.6rem;
+      background-color: #d62828;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0 0.2rem;
+    }
+
+    button:hover {
+      background-color: #a4161a;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Your Cart</h1>
+
+  <table id="cart-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Subtotal</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <p class="total" id="total">Total: $0.00</p>
+
+  <div class="footer">
+    <button onclick="checkout()">Proceed to Checkout</button>
+    <p><a href="index.html">← Back to Menu</a></p>
+  </div>
+
+  <script>
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const tbody = document.querySelector('#cart-table tbody');
+      tbody.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>${item.quantity}</td>
+          <td>$${item.price.toFixed(2)}</td>
+          <td>$${subtotal.toFixed(2)}</td>
+          <td>
+            <button onclick="updateQuantity(${index}, 1)">+</button>
+            <button onclick="updateQuantity(${index}, -1)">−</button>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+
+      document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    function updateQuantity(index, delta) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart[index].quantity += delta;
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      loadCart();
+    }
+
+    function checkout() {
+      alert('Thanks for your order! Your food is on the way!');
+      localStorage.removeItem('cart');
+      loadCart();
+    }
+
+    window.onload = loadCart;
+  </script>
+</body>
+</html>

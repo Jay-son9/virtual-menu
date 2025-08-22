@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fast Bites Menu</title>
+  <style>
+    /* (Same styles as before, plus button styles) */
+    button {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #f77f00;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #d62828;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fast Bites Burger Menu</h1>
+    <p><a href="cart.html" style="color: #fff;">🛒 View Cart</a></p>
+  </header>
+
+  <main>
+    <section>
+      <h2>🍔 Burgers</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/100" alt="Classic Burger">
+          <h3>Classic Burger</h3>
+          <p>$5.99</p>
+          <button onclick="addToCart('Classic Burger', 5.99)">Add to Cart</button>
+        </div>
+        <!-- Repeat for all other burgers, sides, etc., changing name & price -->
+      </div>
+    </section>
+
+    <!-- Weekly special and footer stay the same -->
+  </main>
+
+  <footer>
+    <p><strong>Fast Bites Burger</strong></p>
+    <p>123 Flavor Street, Burger Town, BK 11223</p>
+    <p>Email: contact@fastbitesburger.com</p>
+    <p>Phone: (123) 456-7890</p>
+  </footer>
+
+  <script>
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} added to cart!`);
+    }
+  </script>
+</body>
+</html>
